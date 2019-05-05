@@ -12,13 +12,15 @@
     Contributors: Tomcat-Slf4j-Logback Team.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="https://maven.apache.org/POM/4.0.0" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
         <groupId>com.github.tomcat-slf4j-logback</groupId>
-        <artifactId>tomcat-slf4j-logback</artifactId>
-        <version>1.0.20-SNAPSHOT</version>
+        <artifactId>tomcat-slf4j-logback-parent</artifactId>
+        <version>1.1.0-SNAPSHOT</version>
+        <relativePath />
     </parent>
 
     <groupId>com.github.tomcat-slf4j-logback</groupId>
@@ -28,6 +30,25 @@
     <name>tomcat85-slf4j-logback</name>
     <description>Tomcat85 Slf4j Logback Integration</description>
 
+    <url>https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback</url>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>travis-ci</system>
+        <url>https://travis-ci.org/tomcat-slf4j-logback/tomcat85-slf4j-logback</url>
+    </ciManagement>
+
+    <distributionManagement>
+        <site>
+            <id>gh-pages</id>
+            <name>Tomcat9 Slf4j Logback GitHub Pages</name>
+            <url>git:ssh://git@github.com/tomcat-slf4j-logback/tomcat9-slf4j-logback.git?gh-pages#</url>
+        </site>
+    </distributionManagement>
+
     <scm>
         <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</developerConnection>
@@ -36,6 +57,7 @@
     </scm>
 
     <properties>
+        <config.version>1.1.0-SNAPSHOT</config.version>
         <tomcat.version>8.5.40</tomcat.version>
     </properties>
 
@@ -49,6 +71,31 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack-config</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.github.tomcat-slf4j-logback</groupId>
+                                    <artifactId>tomcat-slf4j-logback-config</artifactId>
+                                    <version>${config.version}</version>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}/tomcat-slfj4-logback-config</outputDirectory>
+                                    <excludes>META-INF/**</excludes>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -135,15 +182,15 @@
                                 </transformer>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
                                     <resource>META-INF/LICENSE-logback.txt</resource>
-                                    <file>${main.basedir}/src/assembly/LICENSE-logback.txt</file>
+                                    <file>${project.build.directory}/tomcat-slfj4-logback-config/assembly/LICENSE-logback.txt</file>
                                 </transformer>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
                                     <resource>META-INF/LICENSE-slf4j.txt</resource>
-                                    <file>${main.basedir}/src/assembly/LICENSE-slf4j.txt</file>
+                                    <file>${project.build.directory}/tomcat-slfj4-logback-config/assembly/LICENSE-slf4j.txt</file>
                                 </transformer>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
                                     <resource>META-INF/LICENSE-tomcat.txt</resource>
-                                    <file>${main.basedir}/src/assembly/LICENSE-tomcat.txt</file>
+                                    <file>${project.build.directory}/tomcat-slfj4-logback-config/assembly/LICENSE-tomcat.txt</file>
                                 </transformer>
                             </transformers>
                         </configuration>
@@ -156,7 +203,7 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
                     <descriptors>
-                        <descriptor>${main.basedir}/src/assembly/assembly.xml</descriptor>
+                        <descriptor>${project.build.directory}/tomcat-slfj4-logback-config/assembly/assembly.xml</descriptor>
                     </descriptors>
                 </configuration>
                 <executions>
