@@ -45,14 +45,14 @@
         <site>
             <id>gh-pages</id>
             <name>Tomcat9 Slf4j Logback GitHub Pages</name>
-            <url>git:ssh://git@github.com/tomcat-slf4j-logback/tomcat9-slf4j-logback.git?gh-pages#</url>
+            <url>git:ssh://git@github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback.git?gh-pages#</url>
         </site>
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat-slf4j-logback.git</developerConnection>
-        <url>https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback</url>
+        <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback.git</developerConnection>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback</url>
         <tag>HEAD</tag>
     </scm>
 
