@@ -25,7 +25,7 @@
 
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat85-slf4j-logback</artifactId>
-    <version>8.5.45-SNAPSHOT</version>
+    <version>8.5.45</version>
 
     <name>tomcat85-slf4j-logback</name>
     <description>Tomcat85 Slf4j Logback Integration</description>
@@ -53,7 +53,7 @@
         <connection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback.git</developerConnection>
         <url>https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback</url>
-        <tag>HEAD</tag>
+        <tag>tomcat85-slf4j-logback-8.5.45</tag>
     </scm>
 
     <properties>
