@@ -18,6 +18,6 @@ updates:
     interval: daily
   open-pull-requests-limit: 10
   ignore:
-- dependency-name: org.apache.tomcat:tomcat-juli
-  versions:
-  - "> 8.6.0"
+  - dependency-name: org.apache.tomcat:tomcat-juli
+    versions:
+    - "> 8.6.0"
