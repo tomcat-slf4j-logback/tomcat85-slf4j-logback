@@ -65,8 +65,8 @@
         <slf4j.version>1.8.0-beta4</slf4j.version>
 
 	<!-- add logstash JSON encoder and dependencies -->
-	<logstash.version>6.6</logstash.version>
-	<jackson.version>2.12.5</jackson.version>
+	<logstash.version>7.0.1</logstash.version>
+	<jackson.version>2.13.0</jackson.version>
     </properties>
 
     <dependencies>
