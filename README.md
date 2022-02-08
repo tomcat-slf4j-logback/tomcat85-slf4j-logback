@@ -208,6 +208,18 @@ _common class loader_.
 Sample `logback.xml` reflecting the configuration from standard `$CATALINA_HOME/conf/logging.properties`
 can be found in conf/logback.xml from github [releases] (https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/releases).
 
+### JSON Logging with Logstash Encoder ###
+
+This is an example logback.xml that logs JSON data to the console, and is suitable for container-based deployments:
+
+    <configuration>
+        <appender name="CONSOLE" class="org.apache.juli.logging.ch.qos.logback.core.ConsoleAppender">
+            <encoder class="org.apache.juli.logging.net.logstash.logback.encoder.LogstashEncoder"/>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="CONSOLE" />
+        </root>
+    </configuration>
 
 ## Tomcat Customization ##
 
