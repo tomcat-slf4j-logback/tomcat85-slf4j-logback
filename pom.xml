@@ -37,15 +37,15 @@
         <url>https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback/issues</url>
     </issueManagement>
     <ciManagement>
-        <system>travis-ci</system>
-        <url>https://travis-ci.org/tomcat-slf4j-logback/tomcat85-slf4j-logback</url>
+        <system>GitHub</system>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback/actions</url>
     </ciManagement>
 
     <distributionManagement>
         <site>
-            <id>gh-pages</id>
+            <id>gh-pages-scm</id>
             <name>Tomcat9 Slf4j Logback GitHub Pages</name>
-            <url>git:ssh://git@github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback.git?gh-pages#</url>
+            <url>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback.git</url>
         </site>
     </distributionManagement>
 
@@ -60,9 +60,9 @@
         <config.version>1.1.2</config.version>
         <tomcat.version>8.5.78</tomcat.version>
 
-        <!-- Leave these at current revisions as last to support jdk 7 (duplicated from parent for protection of jdk7) -->
-        <logback.version>1.3.0-alpha4</logback.version>
-        <slf4j.version>1.8.0-beta4</slf4j.version>
+        <!-- Override due to vulnerabilities from parent releases -->
+        <logback.version>1.2.11</logback.version>
+        <slf4j.version>1.7.36</slf4j.version>
     </properties>
 
     <dependencies>
