@@ -157,7 +157,7 @@
                                     <include>ch.qos.logback:logback-classic</include>
                                     <include>ch.qos.logback:logback-core</include>
 
-                        				    <!-- logstash dependencies -->
+                                    <!-- logstash dependencies -->
                                     <include>net.logstash.logback:logstash-logback-encoder</include>
                                     <include>com.fasterxml.jackson.core:jackson-annotations</include>
                                     <include>com.fasterxml.jackson.core:jackson-core</include>
@@ -224,14 +224,14 @@
                                 </filter>
 
                                 <filter>
-				                            <artifact>com.fasterxml*:*</artifact>
+                                    <artifact>com.fasterxml*:*</artifact>
                                     <excludes>
                                         <exclude>META-INF/MANIFEST.MF</exclude>  
                                         <exclude>META-INF/NOTICE</exclude>
                                         <exclude>META-INF/LICENSE</exclude>
                                         <exclude>META-INF/versions/9/module-info.class</exclude>
                                     </excludes>
-				                        </filter>
+                                </filter>
 
                                 <filter>
                                     <artifact>net.logstash.logback:logstash-logback-encoder</artifact>
