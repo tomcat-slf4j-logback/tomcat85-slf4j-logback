@@ -3,7 +3,7 @@
 
     Tomcat-Slf4j-Logback (https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback/)
 
-    Copyright (c) 2010-2021 Tomcat-Slf4j-Logback.
+    Copyright (c) 2010-2023 Tomcat-Slf4j-Logback.
 
     All rights reserved. This program and the accompanying materials are made available under the
     terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available
@@ -19,13 +19,13 @@
     <parent>
         <groupId>com.github.tomcat-slf4j-logback</groupId>
         <artifactId>tomcat-slf4j-logback-parent</artifactId>
-        <version>1.3.2</version>
+        <version>1.5.0</version>
         <relativePath />
     </parent>
 
     <groupId>com.github.tomcat-slf4j-logback</groupId>
     <artifactId>tomcat85-slf4j-logback</artifactId>
-    <version>8.5.66-SNAPSHOT</version>
+    <version>8.5.91-SNAPSHOT</version>
 
     <name>tomcat85-slf4j-logback</name>
     <description>Tomcat85 Slf4j Logback Integration</description>
@@ -37,15 +37,15 @@
         <url>https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback/issues</url>
     </issueManagement>
     <ciManagement>
-        <system>travis-ci</system>
-        <url>https://travis-ci.org/tomcat-slf4j-logback/tomcat85-slf4j-logback</url>
+        <system>GitHub</system>
+        <url>https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback/actions</url>
     </ciManagement>
 
     <distributionManagement>
         <site>
-            <id>gh-pages</id>
-            <name>Tomcat9 Slf4j Logback GitHub Pages</name>
-            <url>git:ssh://git@github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback.git?gh-pages#</url>
+            <id>gh-pages-scm</id>
+            <name>Tomcat85 Slf4j Logback GitHub Pages</name>
+            <url>scm:git:ssh://git@github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback.git</url>
         </site>
     </distributionManagement>
 
@@ -57,16 +57,16 @@
     </scm>
 
     <properties>
-        <config.version>1.1.2</config.version>
-        <tomcat.version>8.5.75</tomcat.version>
+        <config.version>1.3.1</config.version>
+        <tomcat.version>8.5.91</tomcat.version>
 
-        <!-- Leave these at current revisions as last to support jdk 7 (duplicated from parent for protection of jdk7) -->
-        <logback.version>1.3.0-alpha4</logback.version>
-        <slf4j.version>1.8.0-beta4</slf4j.version>
+        <!-- Override for Latest Versions -->
+        <logback.version>1.3.8</logback.version>
+        <slf4j.version>2.0.7</slf4j.version>
 
-	<!-- add logstash JSON encoder and dependencies -->
-	<logstash.version>7.0.1</logstash.version>
-	<jackson.version>2.13.0</jackson.version>
+	     <!-- add logstash JSON encoder and dependencies -->
+	     <logstash.version>7.4</logstash.version>
+	     <jackson.version>2.15.2</jackson.version>
     </properties>
 
     <dependencies>
@@ -157,11 +157,11 @@
                                     <include>ch.qos.logback:logback-classic</include>
                                     <include>ch.qos.logback:logback-core</include>
 
-				    <!-- logstash dependencies -->
+                        				    <!-- logstash dependencies -->
                                     <include>net.logstash.logback:logstash-logback-encoder</include>
-                                    <include>com.fasterxml.jackson.core:jackson-databind</include>
-                                    <include>com.fasterxml.jackson.core:jackson-core</include>
                                     <include>com.fasterxml.jackson.core:jackson-annotations</include>
+                                    <include>com.fasterxml.jackson.core:jackson-core</include>
+                                    <include>com.fasterxml.jackson.core:jackson-databind</include>
                                 </includes>
                             </artifactSet>
 
@@ -191,27 +191,54 @@
                                     </excludes>
                                 </filter>
 
-				<filter>
-				  <artifact>com.fasterxml.jackson.core:jackson-databind</artifact>
-                                  <excludes>
-                                    <exclude>META-INF/NOTICE</exclude>
-                                    <exclude>META-INF/LICENSE</exclude>
-                                  </excludes>
-				</filter>
-				<filter>
-				  <artifact>com.fasterxml.jackson.core:jackson-core</artifact>
-                                  <excludes>
-                                    <exclude>META-INF/NOTICE</exclude>
-                                    <exclude>META-INF/LICENSE</exclude>
-                                  </excludes>
-				</filter>
-				<filter>
-				  <artifact>com.fasterxml.jackson.core:jackson-annotations</artifact>
-                                  <excludes>
-                                    <exclude>META-INF/NOTICE</exclude>
-                                    <exclude>META-INF/LICENSE</exclude>
-                                  </excludes>
-				</filter>
+                                <!-- Exclude manifests as we include our own -->
+                                <filter>
+                                    <artifact>org.slf4j:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
+                                    </excludes>
+                                </filter>
+
+                                <!-- Exclude module info as conflicting and we are not using (we require java 8 as a baseline) -->
+                                <filter>
+                                    <artifact>org.slf4j:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/versions/9/module-info.class</exclude>
+                                    </excludes>
+                                </filter>
+
+                                <!-- Exclude manifests as we include our own -->
+                                <filter>
+                                    <artifact>ch.qos.logback:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
+                                    </excludes>
+                                </filter>
+
+                                <!-- Exclude module info as conflicting and we are not using (we require java 8 as a baseline) -->
+                                <filter>
+                                    <artifact>ch.qos.logback:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/versions/9/module-info.class</exclude>
+                                    </excludes>
+                                </filter>
+
+                                <filter>
+				                            <artifact>com.fasterxml*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>  
+                                        <exclude>META-INF/NOTICE</exclude>
+                                        <exclude>META-INF/LICENSE</exclude>
+                                        <exclude>META-INF/versions/9/module-info.class</exclude>
+                                    </excludes>
+				                        </filter>
+
+                                <filter>
+                                    <artifact>net.logstash.logback:logstash-logback-encoder</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/MANIFEST.MF</exclude>
+                                    </excludes>
+                                </filter>
                             </filters>
 
                             <relocations>
