@@ -236,6 +236,14 @@
                                     </excludes>
                                 </filter>
 
+                                <!-- Exclude licenses as separately handled -->
+                                <filter>
+                                    <artifact>org.slf4j:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/LICENSE.txt</exclude>
+                                    </excludes>
+                                </filter>
+
                                 <!-- Exclude manifests as we include our own -->
                                 <filter>
                                     <artifact>org.slf4j:*</artifact>
