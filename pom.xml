@@ -212,6 +212,7 @@
                             </artifactSet>
 
                             <filters>
+                                <!-- Include items from tomcat juli -->
                                 <filter>
                                     <artifact>org.apache.tomcat:tomcat-juli</artifact>
                                     <includes>
