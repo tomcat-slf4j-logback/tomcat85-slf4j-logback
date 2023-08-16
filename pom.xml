@@ -277,11 +277,27 @@
                                     </excludes>
                                 </filter>
 
+                                <!-- Exclude licenses as separately handled -->
+                                <filter>
+                                    <artifact>com.fasterxml*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/LICENSE</exclude>
+                                    </excludes>
+                                </filter>
+
                                 <!-- Exclude manifests as we include our own -->
                                 <filter>
                                     <artifact>com.fasterxml*:*</artifact>
                                     <excludes>
                                         <exclude>META-INF/MANIFEST.MF</exclude>
+                                    </excludes>
+                                </filter>
+
+                                <!-- Exclude notices as separately handled -->
+                                <filter>
+                                    <artifact>com.fasterxml*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/NOTICE</exclude>
                                     </excludes>
                                 </filter>
 
