@@ -1,5 +1,7 @@
 Notable Changes
 ---------------
+* Introduce Logstash and shade logback access as of tomcat 8.5.93
+
 * [#124](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/pull/124): Correct server.xml per version [@hazendaz]
 
 * [#120](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/pull/120): Multi-module revamp [@hazendaz]
