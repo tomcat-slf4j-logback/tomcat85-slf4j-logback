@@ -170,7 +170,7 @@
         <!-- Access log processes all example.
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->
-        <Valve className="org.apache.juli.logging.ch.qos.logback.access.tomcat.LogbackValve" quiet="true" />
+        <Valve className="ch.qos.logback.access.tomcat.LogbackValve" quiet="true" />
 
       </Host>
     </Engine>
