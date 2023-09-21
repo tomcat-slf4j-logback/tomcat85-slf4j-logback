@@ -57,6 +57,7 @@
     </scm>
 
     <properties>
+        <!-- Config and Tomcat Versions -->
         <config.version>1.4.0</config.version>
         <tomcat.version>8.5.93</tomcat.version>
 
