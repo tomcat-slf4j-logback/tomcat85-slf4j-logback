@@ -57,7 +57,7 @@
     </scm>
 
     <properties>
-        <config.version>1.4.0-SNAPSHOT</config.version>
+        <config.version>1.4.0</config.version>
         <tomcat.version>8.5.93</tomcat.version>
 
         <!-- Override for Latest Versions -->
