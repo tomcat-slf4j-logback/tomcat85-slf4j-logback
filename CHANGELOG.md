@@ -1,5 +1,8 @@
 Notable Changes
 ---------------
+* Introduce Logstash as of tomcat 8.5.93
+* note: Tried to shade access logs but classloader doesn't work out so those remain as they were.
+
 * [#124](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/pull/124): Correct server.xml per version [@hazendaz]
 
 * [#120](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback/pull/120): Multi-module revamp [@hazendaz]
