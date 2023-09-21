@@ -108,12 +108,6 @@
             <version>${logback.version}</version>
             <scope>compile</scope>
             <optional>true</optional>
-            <exclusions>
-                 <exclusion>
-                      <groupId>com.sun.mail</groupId>
-                      <artifactId>javax.mail</artifactId>
-                 </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
