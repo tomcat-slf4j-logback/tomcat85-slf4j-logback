@@ -136,7 +136,7 @@ Type:
 
     mvn clean install
 
-Tomcat version for 8.5 build.
+Tomcat version for 8.5 build requires jdk 8.
 
 And move tomcat-juli JAR for your tomcat version from `target` directory to `$CATALINA_HOME/bin` directory.
 
