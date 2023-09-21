@@ -352,6 +352,12 @@
                                 </relocation>
 
                                 <relocation>
+                                    <pattern>com/fasterxml</pattern>
+                                    <shadedPattern>org/apache/juli/logging/com/fasterxml</shadedPattern>
+                                    <rawString>true</rawString>
+                                </relocation>
+
+                                <relocation>
                                     <pattern>net.logstash.logback</pattern>
                                     <shadedPattern>org.apache.juli.logging.net.logstash.logback</shadedPattern>
                                 </relocation>
