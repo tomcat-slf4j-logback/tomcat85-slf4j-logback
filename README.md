@@ -1,4 +1,4 @@
-﻿# Tomcat + SLF4J + Logback #
+﻿# Tomcat + SLF4J + Logback (Reached End of Life) #
 
 [![Java CI](https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback/workflows/Java%20CI/badge.svg)](https://github.com/tomcat-slf4j-logback/tomcat85-slf4j-logback/actions?query=workflow%3A%22Java+CI%22)
 [![Eclipse](https://img.shields.io/badge/license-Eclipse-blue.svg)](https://www.eclipse.org/legal/epl-v10.html)
@@ -6,6 +6,10 @@
 [![Github All Releases](https://img.shields.io/github/downloads/tomcat-slf4j-logback/tomcat-slf4j-logback/total.svg)]()
 
 Tomcat SLF4J Logback is a drop in replacement to tomcat allowing full all internal logging to use our favorite slf4j/logback libraries.
+
+## NOTICE ##
+
+Tomcat85 (8.5) support has reached end of life. See [here](https://github.com/tomcat-slf4j-logback/tomcat-slf4j-logback) for supported versions.
 
 ## RELEASES ##
 
